@@ -16,5 +16,5 @@ public class NidoStngs {
     public static final String CONFIG_DIR = HOME_PATH + File.separator + ".nidodownloader" + File.separator;
     public static final String DEFAULT_DIR = HOME_PATH + File.separator + "NidoDownloader" + File.separator + "hilos" + File.separator;
     public static final Object[] OPTIONS_PANE = {"Aceptar", "Abrir carpeta"};
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
 }
