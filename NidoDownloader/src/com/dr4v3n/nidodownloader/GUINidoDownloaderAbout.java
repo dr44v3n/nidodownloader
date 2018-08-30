@@ -20,8 +20,11 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("NidoDownloader");
+        setLocationRelativeTo(null);
+        setResizable(false);
         lblVersion.setText(NidoStngs.VERSION);
         lblLinkNido.setText("<html><FONT color=\"#000099\">https://www.nido.org</FONT></html>");
+        lblContact.setText("<html><FONT color=\"#000099\">dr4v3n@tuta.io</FONT></html>");
         
     }
 
@@ -43,6 +46,8 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
         lblLinkNido = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        lblContact = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +78,10 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Contacto: ");
+
+        lblContact.setText("jLabel6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +106,11 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
                                 .addComponent(lblLinkNido, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblContact)))
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -124,7 +137,11 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
                     .addComponent(lblLinkNido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblContact))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -146,6 +163,8 @@ public class GUINidoDownloaderAbout extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblLinkNido;
     private javax.swing.JLabel lblVersion;

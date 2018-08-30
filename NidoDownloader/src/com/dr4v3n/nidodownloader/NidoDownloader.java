@@ -122,7 +122,6 @@ public class NidoDownloader {
 				if (element != null) {
 					String link = LINK + element.attr("href");
 					downloadFile(link);
-					//System.out.println("element");
 				}
 			} else {
 				System.out.println("ERROR: bad url");
@@ -235,9 +234,7 @@ public class NidoDownloader {
         private void downloadFiles(File file, String imageName, HttpEntity imageEntity) throws IOException{
             File imgFile = new File(file.getAbsolutePath(), imageName);
             FileUtils.copyInputStreamToFile(imageEntity.getContent(), imgFile);
-            //System.out.println("Downloading " + counter + "...");
             lblDebug.setText(imageName);
-            System.out.println(imgFile.getAbsolutePath());
         }
 	
 	private void createTxt() throws IOException {
@@ -279,14 +276,6 @@ public class NidoDownloader {
 
 	public void setLimit(int limit) {
 		this.limit = limit;
-	}
-
-	public String getFolderName() {
-		return folderName;
-	}
-
-	public void setFolderName(String folderName) {
-		this.folderName = folderName;
 	}
 
 	public boolean isIncludeImgs() {

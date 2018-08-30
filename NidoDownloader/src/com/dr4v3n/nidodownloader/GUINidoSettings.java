@@ -40,9 +40,10 @@ public class GUINidoSettings extends javax.swing.JFrame {
                 tfPath.setText(mPath);
             }
         } else {
-            //file = new File(Paths.get("").toAbsolutePath().toString());
             tfPath.setText(NidoStngs.DEFAULT_DIR);
         }
+        setLocationRelativeTo(null);
+        setResizable(false);
         
     }
 
