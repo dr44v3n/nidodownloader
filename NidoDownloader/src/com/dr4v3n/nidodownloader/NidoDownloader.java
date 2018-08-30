@@ -44,6 +44,7 @@ public class NidoDownloader {
 	private boolean includeGifs;
 
 	private int counter = 1;
+        private int imgsDownloaded = 0;
 	private JProgressBar progressBar;
         private JLabel lblDebug;
 	
@@ -143,7 +144,7 @@ public class NidoDownloader {
                                 if (progressBar != null && lblDebug != null) {
                                     progressBar.setValue(counter);
                                 }
-            counter++;
+                        counter++;
 			}
                         
                         createTxt();
@@ -151,7 +152,7 @@ public class NidoDownloader {
                             progressBar.setValue(progressBar.getMaximum());
                         }
 			int x = JOptionPane.showOptionDialog(null, 
-                                "Se han descargado " + counter + " archivos en " + path + threadName, 
+                                "Se han descargado " + imgsDownloaded + " archivos en " + path + threadName, 
                                 "Terminado",
                                 JOptionPane.DEFAULT_OPTION, 
                                 JOptionPane.INFORMATION_MESSAGE, 
@@ -163,10 +164,15 @@ public class NidoDownloader {
                             Desktop.getDesktop().open(new File(path + threadName));
                         }
 		} catch (HttpStatusException e) {
-			JOptionPane.showMessageDialog(null, "ERROR", "ERROR: bad URL", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ERROR: bad URL", "ERROR", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "ERROR", e.getMessage(), JOptionPane.ERROR_MESSAGE);
-		}
+		} catch (NullPointerException e) {
+                    JOptionPane.showMessageDialog(null, 
+                            "ERROR: algo salió mal... revisa la URL y reinicia el programa" ,
+                            "ERROR", 
+                            JOptionPane.ERROR_MESSAGE);
+                }
                 
 		
 	}
@@ -235,6 +241,7 @@ public class NidoDownloader {
             File imgFile = new File(file.getAbsolutePath(), imageName);
             FileUtils.copyInputStreamToFile(imageEntity.getContent(), imgFile);
             lblDebug.setText(imageName);
+            imgsDownloaded++;
         }
 	
 	private void createTxt() throws IOException {
